@@ -9,14 +9,16 @@ export default function HomePage() {
     const [activeCard, setActiveCard] = useState(null)
     const [showedCards, setShowedCards] = useState([])
     const [deck, setDeck] = useState(CARDS)
+    const [audio, setAudio] = useState(null)
     
 
     useEffect(() => {
         if (activeCard!=null) {
 
-            const audio = new Audio(`src/pistas/${activeCard?.audioName}`)
+            const audio = new Audio(`/pistas/${activeCard?.audioName}`)
             console.log(audio)
-            audio.play()
+            //audio.play()
+            setAudio(audio)
 
         }
 
@@ -24,7 +26,8 @@ export default function HomePage() {
 
 
     const handleRepeatAudio = () => {
-        const audio = new Audio(`src/pistas/${activeCard?.audioName}`)
+        const audio = new Audio(`pistas/${activeCard?.audioName}`)
+        console.log(audio)
         audio.play()
     }
 
@@ -107,7 +110,7 @@ export default function HomePage() {
                         >
 
                             <h2>{activeCard.title}</h2>
-                            <img src={`src/images/${activeCard.fileName}`} alt={activeCard.title} />
+                            <img src={`images/${activeCard.fileName}`} alt={activeCard.title} />
                         </motion.div>
                     )}
                 </AnimatePresence>
