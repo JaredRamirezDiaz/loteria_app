@@ -5,20 +5,23 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 
 
+
 export default function HomePage() {
     const [activeCard, setActiveCard] = useState(null)
     const [showedCards, setShowedCards] = useState([])
     const [deck, setDeck] = useState(CARDS)
     const [audio, setAudio] = useState(null)
-    
+
 
     useEffect(() => {
         if (activeCard!=null) {
 
-            const audio = new Audio(`/pistas/${activeCard?.audioName}`)
+            const audio = new Audio(`pistas/${activeCard?.audioName}`)
             console.log(audio)
-            //audio.play()
+            audio.play()
             setAudio(audio)
+            
+            
 
         }
 
