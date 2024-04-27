@@ -20,7 +20,7 @@ export default function HomePage() {
             console.log(audio)
             audio.play()
             setAudio(audio)
-            
+
             
 
         }
@@ -66,6 +66,13 @@ export default function HomePage() {
 
             }}
         >
+            <div style={{display:'none'}}>
+                {
+                    CARDS.map(card => (
+                        <img src={`images/${card.fileName}`} alt={card.title} />
+                    ))
+                }
+            </div>
             <div
                 style={{
                     display: 'flex',
